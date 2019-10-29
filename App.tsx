@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text } from 'react-native'
-import { styled } from 'styled-components/native'
+import styled from 'styled-components/native'
 
 export default function App() {
   return (
@@ -15,5 +15,5 @@ const Container = styled.View`
   background: salmon;
   align-items: center;
   justify-content: center;
-  font-weight: 24px;
+  font-weight: 500;
 `
