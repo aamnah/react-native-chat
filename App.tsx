@@ -1,19 +1,24 @@
 import React from 'react'
-import { Text } from 'react-native'
-import styled from 'styled-components/native'
+import { createAppContainer } from 'react-navigation'
+import { createStackNavigator } from 'react-navigation-stack'
+import Chat from './src/screen/Chat'
 
-export default function App() {
-  return (
-    <Container>
-      <Text>This is my chat app</Text>
-    </Container>
-  )
-}
+const MainNavigator = createStackNavigator(
+  {
+    // route configuration object
+    Chat: {
+      screen: Chat, // screen is the only required,
+      navigationOptions: {
+        title: 'Chat'
+      }
+    }
+  },
+  {
+    // options object
+    initialRouteName: 'Chat' // specify initial route in a stack
+  }
+)
 
-const Container = styled.View`
-  flex: 1;
-  background: salmon;
-  align-items: center;
-  justify-content: center;
-  font-weight: 500;
-`
+const App = createAppContainer(MainNavigator)
+
+export default App
