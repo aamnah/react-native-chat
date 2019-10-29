@@ -9,11 +9,23 @@ export default function Chat() {
 
   function onSend(newMessages = []) {
     setMessages(GiftedChat.append(messages, newMessages))
+    console.log(messages)
   }
 
   return (
     <View style={{ flex: 1 }}>
-      <GiftedChat messages={messages} onSend={data => onSend(data)} />
+      <GiftedChat
+        inverted={false}
+        renderUsernameOnMessage
+        messages={messages}
+        showUserAvatar
+        user={{
+          _id: 0,
+          name: 'Maheena',
+          avatar: 'https://i.pravatar.cc/140?img=47'
+        }}
+        onSend={data => onSend(data)}
+      />
       {Platform.OS === 'android' && (
         <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={80} />
       )}
